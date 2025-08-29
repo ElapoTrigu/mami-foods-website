@@ -1,15 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <main style={{maxWidth: 900, margin: "40px auto", padding: "0 16px"}}>
-      <h1>Hello Mami Foods</h1>
-      <p>This is our starter site. We’ll plug in database and pages next.</p>
-    </main>
-  );
+    <>
+      <Navbar />
+      <main className="container" style={{ padding: '20px 0 60px' }}>
+        <Routes>
+          <Route path="/" element={<div>Home</div>} />
+          <Route path="/products" element={<div>Products</div>} />
+          <Route path="/about" element={<div>About</div>} />
+          <Route path="/stockists" element={<div>Stockists</div>} />
+          <Route path="/contact" element={<div>Contact</div>} />
+        </Routes>
+      </main>
+    </>
+  )
 }
-
 export default App

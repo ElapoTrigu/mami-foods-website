@@ -1,0 +1,18 @@
+:root{
+  --mf-yellow:#F3D23B;
+  --mf-green:#95C85A;
+  --mf-red:#E0322B;
+  --mf-ink:#1F2937;
+  --mf-bg:#FFFCF3;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--mf-ink);background:var(--mf-bg)}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 16px}
+.btn{
+  display:inline-block;padding:10px 14px;border-radius:999px;font-weight:600;border:2px solid var(--mf-ink);
+  background:#fff;transition:transform .06s ease, box-shadow .06s ease
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.whatsapp{background:var(--mf-green);border-color:transparent;color:#08320f}
