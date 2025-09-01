@@ -32,7 +32,7 @@ export default function Navbar() {
           </ul>
           <a
             className="btn whatsapp"
-            href="https://wa.me/265880648978?text=Hi%20Mami%20Foods%2C%20I%27d%20like%20to%20order."
+            href="https://wa.me/265885238265?text=Hi%20Mami%20Foods%2C%20I%27d%20like%20to%20order."
             target="_blank"
             rel="noreferrer"
           >

@@ -16,3 +16,4 @@ a{color:inherit;text-decoration:none}
 }
 .btn:hover{transform:translateY(-1px)}
 .btn.whatsapp{background:var(--mf-green);border-color:transparent;color:#08320f}
+.font-script { font-family: "Covered By Your Grace", cursive; }
