@@ -1,19 +1,179 @@
 :root{
+  /* Brand colors */
   --mf-yellow:#F3D23B;
   --mf-green:#95C85A;
   --mf-red:#E0322B;
   --mf-ink:#1F2937;
+  --mf-ink-600:#374151;
+  --mf-ink-400:#6B7280;
   --mf-bg:#FFFCF3;
+  --mf-white:#FFFFFF;
+
+  /* Surfaces & shadows */
   --radius:18px;
+  --radius-lg:24px;
+  --shadow-sm: 0 1px 2px rgba(17,24,39,.06);
+  --shadow-md: 0 6px 14px rgba(17,24,39,.08);
+
+  /* Type scale (fluid where helpful) */
+  --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-script: "Covered By Your Grace", cursive;
+
+  --fs-900: clamp(2rem, 1.6rem + 2vw, 3rem);   /* Display */
+  --fs-800: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --fs-700: 1.5rem;      /* h3 */
+  --fs-600: 1.25rem;     /* h4 */
+  --fs-500: 1.125rem;    /* lead */
+  --fs-400: 1rem;        /* body */
+  --fs-300: .9375rem;    /* small */
+
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Focus ring */
+  --ring: 0 0 0 3px rgba(243,210,59,.5); /* yellow glow */
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--mf-ink);background:var(--mf-bg)}
-a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 16px}
+
+/* Base */
+* { box-sizing:border-box }
+html, body { height: 100% }
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-size:var(--fs-400);
+  line-height:1.6;
+  color:var(--mf-ink);
+  background:var(--mf-bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{ color:inherit; text-decoration:none }
+a:hover{ text-decoration:underline; text-underline-offset:2px }
+
+img{ max-width:100%; display:block; height:auto }
+
+/* Typography helpers */
+.h1{ font-size:var(--fs-900); line-height:1.15; letter-spacing:-.01em; }
+.h2{ font-size:var(--fs-800); line-height:1.2;  letter-spacing:-.01em; }
+.h3{ font-size:var(--fs-700); line-height:1.25; }
+.h4{ font-size:var(--fs-600); line-height:1.3; }
+.lead{ font-size:var(--fs-500); color:var(--mf-ink-600) }
+.muted{ color:var(--mf-ink-400) }
+.font-script{ font-family:var(--font-script) }
+
+/* Layout */
+.container{ max-width:1120px; margin-inline:auto; padding-inline:16px }
+@media (min-width:1280px){
+  .container{ max-width:1200px }
+}
+.section{ padding-block: var(--space-12); }
+.section-tight{ padding-block: var(--space-8); }
+
+/* Card (reusable) */
+.card{
+  background:var(--mf-white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(17,24,39,.06);
+  overflow:hidden;
+}
+.card-pad{ padding:var(--space-6) }
+
+/* Buttons */
 .btn{
-  display:inline-block;padding:10px 14px;border-radius:999px;font-weight:600;border:2px solid var(--mf-ink);
-  background:#fff;transition:transform .06s ease, box-shadow .06s ease
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:600;
+  border:2px solid var(--mf-ink);
+  background:var(--mf-white);
+  transition: transform .06s ease, box-shadow .06s ease, opacity .2s ease;
+  cursor:pointer;
 }
-.btn:hover{transform:translateY(-1px)}
-.btn.whatsapp{background:var(--mf-green);border-color:transparent;color:#08320f}
-.font-script { font-family: "Covered By Your Grace", cursive; }
+.btn:hover{ transform:translateY(-1px) }
+.btn:active{ transform:translateY(0) scale(.99) }
+.btn:focus-visible{ outline:none; box-shadow: var(--ring) }
+.btn[disabled]{ opacity:.5; cursor:not-allowed }
+
+.btn.primary{
+  background:var(--mf-yellow);
+  border-color:transparent;
+  color:#4b3a00;
+}
+.btn.outline{
+  background:transparent;
+  color:var(--mf-ink);
+}
+.btn.ghost{
+  border-color:transparent;
+  background:transparent;
+}
+.btn.whatsapp{
+  background:var(--mf-green);
+  border-color:transparent;
+  color:#08320f;
+}
+.btn.danger{
+  background:var(--mf-red);
+  border-color:transparent;
+  color:#fff;
+}
+
+/* Form elements (for your contact/newsletter form component) */
+.input, .select, .textarea{
+  width:100%;
+  border:1.5px solid rgba(17,24,39,.15);
+  background:#fff;
+  border-radius:12px;
+  padding:.7rem .9rem;
+  font:inherit;
+}
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible{
+  outline:none; box-shadow: var(--ring); border-color: transparent;
+}
+.label{ display:block; font-weight:600; margin-bottom:.4rem }
+.help{ font-size:var(--fs-300); color:var(--mf-ink-400); margin-top:.35rem }
+
+/* Reusable “Section Heading” block */
+.section-title{
+  margin-bottom:var(--space-6);
+}
+.section-title .eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.8rem;
+  color:var(--mf-ink-400);
+}
+.section-title .title{
+  margin: .25rem 0 0 0;
+}
+
+/* Utilities */
+.rounded{ border-radius:var(--radius) }
+.rounded-lg{ border-radius:var(--radius-lg) }
+.shadow-sm{ box-shadow:var(--shadow-sm) }
+.shadow-md{ box-shadow:var(--shadow-md) }
+.center{ text-align:center }
+.max-w-prose{ max-width:70ch }
+.grid{ display:grid; gap:var(--space-6) }
+.grid-2{ grid-template-columns:1fr; }
+@media (min-width:768px){ .grid-2{ grid-template-columns:repeat(2,1fr) } }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+}

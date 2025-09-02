@@ -24,12 +24,30 @@ export default function Navbar() {
 
         <nav className={`nav ${open ? 'open' : ''}`}>
           <ul>
-            <li><NavLink to="/" end>Home</NavLink></li>
-            <li><NavLink to="/products">Our Products</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/stockists">Stockists</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
-          </ul>
+  <li>
+    <NavLink to="/" end>Home</NavLink>
+  </li>
+  <li>
+    <NavLink to="/products">Our Products</NavLink>
+  </li>
+
+  <li className="has-submenu">
+    <NavLink to="/about">About</NavLink>
+    <ul className="submenu">
+      <li><NavLink to="/about#story">Our Story</NavLink></li>
+      <li><NavLink to="/about#farmers">Our Farmers</NavLink></li>
+      <li><NavLink to="/about#team">Meet the Team</NavLink></li>
+    </ul>
+  </li>
+
+  <li>
+    <NavLink to="/stockists">Stockists</NavLink>
+  </li>
+  <li>
+    <NavLink to="/contact">Contact</NavLink>
+  </li>
+</ul>
+
           <a
             className="btn whatsapp"
             href="https://wa.me/265885238265?text=Hi%20Mami%20Foods%2C%20I%27d%20like%20to%20order."
